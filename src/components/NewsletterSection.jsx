@@ -1,34 +1,38 @@
-import PropTypes from "prop-types";
+import React from 'react';
 
-const NewsletterSection = ({ className = "" }) => {
+const Newsletter = () => {
   return (
-    <div
-      className={`w-[960px] h-[270px] flex flex-col items-center justify-start gap-4 text-left text-5xl text-black font-poppins ${className}`}
-    >
-      <div className="flex flex-row items-center justify-center p-3xs">
-        <b className="relative">NEWSLETTER</b>
-      </div>
-      <div className="w-[870px] flex flex-row items-center justify-center p-3xs box-border font-inria-serif">
-        <div className="relative">
+    <section className="w-full px-8 py-16 font-poppins">
+      <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
+        {/* Title */}
+        <h2 className="text-4xl font-bold text-black">
+          NEWSLETTER
+        </h2>
+
+        {/* Description */}
+        <p className="text-xl text-center font-inria-serif text-black max-w-2xl">
           Keep up with our latest news and events. Subscribe to our newsletter
+        </p>
+
+        {/* Subscription Form */}
+        <div className="w-full flex flex-col sm:flex-row gap-4 items-center justify-center mt-4">
+          <input
+            type="email"
+            placeholder="Enter your E-mail Address"
+            className="w-full sm:w-2/3 px-6 py-4 text-lg border-3 border-black rounded-lg 
+                     focus:outline-none focus:border-blue-500 transition-colors"
+          />
+          
+          <button className="w-full sm:w-auto px-8 py-4 bg-gray-800 text-white font-bold 
+                           rounded-lg shadow-md hover:bg-gray-700 active:bg-gray-900 
+                           transition-all duration-300 ease-in-out transform 
+                           hover:shadow-lg active:scale-95">
+            Join
+          </button>
         </div>
       </div>
-      <div className="w-[917px] h-[81px] overflow-hidden shrink-0 flex flex-row items-center justify-end pt-0 px-0 pb-px box-border gap-[25px] text-white">
-        <button className="cursor-pointer border-black border-solid border-[3px] py-[15px] px-[29px] bg-white h-20 w-[673px] rounded-tl-lg rounded-tr-xl rounded-br-xl rounded-bl-lg box-border flex flex-col items-start justify-end">
-          <div className="relative text-5xl font-inria-serif text-black whitespace-pre-wrap text-left">
-            Enter your E-mail Adress
-          </div>
-        </button>
-        <div className="w-[94px] rounded-tl-lg rounded-tr-xl rounded-br-xl rounded-bl-lg bg-darkslategray h-20 flex flex-col items-end justify-end py-[15px] px-[23px] box-border">
-          <div className="relative">Join</div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
-NewsletterSection.propTypes = {
-  className: PropTypes.string,
-};
-
-export default NewsletterSection;
+export default Newsletter;

@@ -4,12 +4,12 @@ import Mottto from "../components/Mottto";
 import Services from "../components/Services";
 import AboutUs from "../components/AboutUs";
 import OurWork from "../components/OurWork";
-import Newsletter from "../components/FrameComponent4";
+import Newsletter from "../components/NewsletterSection";
 import Footer from "../components/Footer";
 
 const HomepageDesktop = () => {
   return (
-    <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start p-10 box-border gap-8 leading-[normal] tracking-[normal] mq750:gap-4">
+    <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start p-10 box-border gap-8 leading-[normal] tracking-[normal]">
       <header className="flex flex-row items-start justify-start py-0 px-[59px] box-border max-w-full lg:pl-[29px] lg:pr-[29px] lg:box-border">
         <Header showLogo={false} />
       </header>
@@ -25,7 +25,7 @@ const HomepageDesktop = () => {
         <OurWork />
       </section>
       <Newsletter />
-      <footer className="flex flex-row items-start justify-start py-0 px-[116px] box-border max-w-full lg:pl-[58px] lg:pr-[58px] lg:box-border mq750:pl-[29px] mq750:pr-[29px] mq750:box-border">
+      <footer className="flex flex-row items-start justify-start py-0 px-[59px] box-border max-w-full lg:pl-[29px] lg:pr-[29px] lg:box-border">
         <Footer
           facebookLink="/facebooklink.svg"
           instagramLink="/instagramlink.svg"

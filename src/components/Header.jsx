@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Header = ({ className = "", logoImageBackgroundImage, showLogo }) => {
   const logoImageStyle = useMemo(() => {
@@ -20,23 +21,25 @@ const Header = ({ className = "", logoImageBackgroundImage, showLogo }) => {
       </div>
       <div className="w-[593px] flex flex-row items-center justify-start gap-8">
         <div className="w-[90px] flex flex-col items-center justify-center">
-          <a className="[text-decoration:none] relative text-[inherit]">Home</a>
+          <Link to="/" className="[text-decoration:none] relative text-[inherit]">
+            Home
+          </Link>
         </div>
         <div className="w-[141px] flex flex-col items-center justify-center">
-          <a className="[text-decoration:none] relative text-[inherit]">
+          <Link to="/about" className="[text-decoration:none] relative text-[inherit]">
             About Us
-          </a>
+          </Link>
         </div>
         <div className="w-[131px] flex flex-col items-center justify-center">
-          <a className="[text-decoration:none] relative text-[inherit]">
+          <Link to="/services" className="[text-decoration:none] relative text-[inherit]">
             Services
-          </a>
+          </Link>
         </div>
-        <a className="[text-decoration:none] w-[121px] flex flex-col items-center justify-center text-[inherit]">
-          <a className="[text-decoration:none] relative text-[inherit]">
+        <div className="w-[121px] flex flex-col items-center justify-center">
+          <Link to="/contact" className="[text-decoration:none] relative text-[inherit]">
             Contact
-          </a>
-        </a>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -45,8 +48,6 @@ const Header = ({ className = "", logoImageBackgroundImage, showLogo }) => {
 Header.propTypes = {
   className: PropTypes.string,
   showLogo: PropTypes.bool,
-
-  /** Style props */
   logoImageBackgroundImage: PropTypes.string,
 };
 

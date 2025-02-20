@@ -13,25 +13,30 @@ function App() {
   const location = useLocation();
   const pathname = location.pathname;
 
+  // Scroll to top on route change
   useEffect(() => {
     if (action !== "POP") {
       window.scrollTo(0, 0);
     }
   }, [action, pathname]);
 
+  // Update document title and meta description based on route
   useEffect(() => {
     let title = "";
     let metaDescription = "";
 
     switch (pathname) {
       case "/":
-        title = "";
-        metaDescription = "";
+        title = "Homepage - Your Website";
+        metaDescription = "Welcome to the homepage of your website.";
         break;
-      case "/":
-        title = "";
-        metaDescription = "";
+      case "/contact":
+        title = "Contact Us - Your Website";
+        metaDescription = "Get in touch with us for any inquiries.";
         break;
+      default:
+        title = "Your Website";
+        metaDescription = "Your website description.";
     }
 
     if (title) {
@@ -51,8 +56,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomepageDesktop />} />
-      <Route path="/" element={<ContactDesktop />} />
+      <Route path="/contact" element={<ContactDesktop />} />
     </Routes>
   );
 }
+
 export default App;
