@@ -11,7 +11,10 @@ const HomepageDesktop = () => {
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start p-10 box-border gap-8 leading-[normal] tracking-[normal]">
       <header className="flex flex-row items-start justify-start py-0 px-[59px] box-border max-w-full lg:pl-[29px] lg:pr-[29px] lg:box-border">
-        <Header showLogo={false} />
+        <Header 
+          showLogo={true} 
+          logoImageBackgroundImage="url('/logo@3x.png')"
+        />
       </header>
       <HeroSection />
       <Mottto />

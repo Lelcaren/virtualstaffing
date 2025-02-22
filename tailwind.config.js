@@ -96,15 +96,10 @@ module.exports = {
       inherit: "inherit",
     },
     screens: {
-      lg: {
-        max: "1200px",
-      },
-      mq750: {
-        raw: "screen and (max-width: 750px)",
-      },
-      mq450: {
-        raw: "screen and (max-width: 450px)",
-      },
+      sm: "400px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
     },
   },
   corePlugins: {

@@ -1,8 +1,7 @@
-import ManageCalendars from "./ManageCalendars";
 import PropTypes from "prop-types";
 
 const ServiceCard = ({ icon, title, description }) => (
-  <div className="bg-darkslategray rounded-lg p-6 border border-white/20 shadow-lg hover:shadow-xl transition-shadow w-80 md:w-72 relative overflow-hidden">
+  <div className="bg-darkslategray rounded-lg p-4 sm:p-6 border border-white/20 shadow-lg hover:shadow-xl transition-shadow w-full sm:w-11/12 md:w-72 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
     
     <div className="relative z-10">
@@ -57,7 +56,7 @@ const Services = ({ className = "" }) => {
     {
       icon: "/group-5@2x.png",
       title: "Data Entry",
-      description: "Accurate and efficient data entry services to keep your records organized, up-to-date, and easily accessible"
+      description: "Accurate and efficient data entry services to keep your records organized, up-to-date, and easily accessible."
     },
     {
       icon: "/group-5@2x.png",
@@ -72,19 +71,19 @@ const Services = ({ className = "" }) => {
   ];
 
   return (
-    <div className={`min-h-screen bg-darkslategray p-8 ${className}`}>
-      <div className="max-w-7xl mx-auto">
+    <div className={`min-h-screen bg-darkslategray flex items-center justify-center p-8 ml-10 ${className}`}>
+      <div className="max-w-7xl w-full">
         {/* Header Section */}
-        <div className="mb-12">
-          <h1 className="text-6xl font-bold text-white mb-6">Our Services</h1>
-          <p className="text-lg font-poppins text-white max-w-3xl">
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Our Services</h1>
+          <p className="text-base sm:text-lg md:text-xl font-poppins text-white max-w-3xl mx-auto">
             We provide tailored virtual staffing solutions to help businesses
             streamline operations, boost productivity, and scale efficiently.
           </p>
         </div>
 
-        {/* Services Grid - Increased gap for more separation */}
-        <div className="grid grid-cols-3 gap-12">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
@@ -110,3 +109,4 @@ ServiceCard.propTypes = {
 };
 
 export default Services;
+

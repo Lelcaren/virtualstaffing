@@ -33,25 +33,27 @@ const Motto = ({ className = "" }) => {
           <div className="absolute left-0 top-0 w-16 h-1 bg-gray-800 -translate-y-6" />
 
           {/* Motto items */}
-          {mottoItems.map((item, index) => (
-            <div key={index} className="flex items-start mb-6 group">
-              <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-100 rounded-full mr-4 mt-1">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  {item.icon}
-                </svg>
+          <div className="space-y-6">
+            {mottoItems.map((item, index) => (
+              <div key={index} className="flex items-start mb-6 group">
+                <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-100 rounded-full mr-4 mt-1">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    {item.icon}
+                  </svg>
+                </div>
+                <p className="m-0 leading-tight text-2xl sm:text-3xl lg:text-5xl group-hover:text-gray-700 transition-colors">
+                  {item.text}
+                </p>
               </div>
-              <p className="m-0 leading-tight text-5xl group-hover:text-gray-700 transition-colors">
-                {item.text}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

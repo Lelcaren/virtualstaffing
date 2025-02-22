@@ -14,106 +14,98 @@ const Footer = ({
   }, [servicesTextDecoration]);
 
   return (
-    <div
-      className={`h-[408px] w-[1128px] flex flex-row items-start justify-start pt-[13px] px-[3px] pb-[34px] box-border gap-[177px] text-left text-5xl text-black font-inria-serif ${className}`}
-    >
-      <div className="h-[361px] w-[508px] flex flex-row items-start justify-start gap-[77px]">
-        <div className="h-[314px] w-[319px] flex flex-col items-start justify-start gap-[68px]">
-          <div className="w-[319px] h-[206px] flex flex-col items-start justify-start gap-2">
-            <img
-              className="w-[250px] h-[120px] relative object-cover"
-              loading="lazy"
-              alt=""
-              src="/logoimage@2x.png"
-            />
-            <div className="w-[319px] h-[78px] flex flex-row items-start justify-start py-0 pl-[33px] pr-0 box-border">
-              <div className="h-[78px] w-[286px] flex flex-row items-start justify-start p-3xs box-border">
-                <div className="h-[58px] w-[267px] relative inline-block shrink-0">
-                  Reliable Talent, Seamless Support.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-[219px] h-10 flex flex-row items-start justify-start py-0 pl-[19px] pr-0 box-border">
-            <div className="h-10 w-[200px] flex flex-row items-start justify-start gap-10">
+    <footer className={`w-full bg-white py-12 ${className}`}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Logo and Tagline Column */}
+          <div className="flex flex-col space-y-6">
+            <div>
               <img
-                className="h-10 w-10 relative overflow-hidden shrink-0"
+                className="w-[180px] h-auto object-contain"
                 loading="lazy"
-                alt=""
-                src={facebookLink}
+                alt="Company Logo"
+                src="/logoimage@2x.png"
               />
-              <img
-                className="h-10 w-10 relative overflow-hidden shrink-0"
-                loading="lazy"
-                alt=""
-                src={instagramLink}
-              />
-              <img
-                className="h-10 w-10 relative"
-                loading="lazy"
-                alt=""
-                src="/vector-3.svg"
-              />
+              <p className="text-lg mt-3 text-gray-800">
+                Reliable Talent, Seamless Support.
+              </p>
+            </div>
+            
+            {/* Social Media Icons */}
+            <div className="flex space-x-6 mt-4">
+              <a href="#" aria-label="Facebook">
+                <img
+                  className="h-8 w-8 transition-opacity hover:opacity-80"
+                  loading="lazy"
+                  alt="Facebook Icon"
+                  src={facebookLink}
+                />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <img
+                  className="h-8 w-8 transition-opacity hover:opacity-80"
+                  loading="lazy"
+                  alt="Instagram Icon"
+                  src={instagramLink}
+                />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <img
+                  className="h-8 w-8 transition-opacity hover:opacity-80"
+                  loading="lazy"
+                  alt="Social Media Icon"
+                  src="/vector-3.svg"
+                />
+              </a>
             </div>
           </div>
-        </div>
-        <div className="h-[361px] w-28 flex flex-col items-start justify-start py-0 px-0 box-border gap-10">
-          <b className="w-[113px] h-[29px] relative inline-block shrink-0">
-            Go to
-          </b>
-          <div className="w-[148px] h-[43px] flex flex-row items-start justify-start pt-0 px-0 pb-3.5 box-border">
-            <div className="h-[29px] w-[149px] relative inline-block shrink-0">
-              Home
+          
+          {/* Navigation Column */}
+          <div className="flex flex-col space-y-4">
+            <h3 className="text-2xl font-bold mb-2">Go to</h3>
+            <nav className="flex flex-col space-y-3">
+              <a href="#" className="text-lg hover:text-gray-600 transition-colors">Home</a>
+              <a href="#" className="text-lg hover:text-gray-600 transition-colors">About Us</a>
+              <a
+                href="#"
+                className="text-lg hover:text-gray-600 transition-colors"
+                style={servicesStyle}
+              >
+                Services
+              </a>
+              <a href="#" className="text-lg hover:text-gray-600 transition-colors">Contact</a>
+            </nav>
+          </div>
+          
+          {/* Contact Details Column */}
+          <div className="flex flex-col space-y-8">
+            <h3 className="text-2xl font-bold">Contact Details</h3>
+            
+            <div className="space-y-2">
+              <h4 className="text-xl font-bold">Email Us</h4>
+              <p className="text-lg text-gray-700">Fast and Reliable Support</p>
+              <a 
+                href="mailto:info@thevirtualstaffingsolution.com" 
+                className="text-lg font-bold text-darkslategray hover:underline"
+              >
+                info@thevirtualstaffingsolution.com
+              </a>
             </div>
-          </div>
-          <div className="w-[148px] h-[43px] flex flex-row items-start justify-start pt-0 px-0 pb-3.5 box-border">
-            <div className="h-[29px] w-[149px] relative inline-block shrink-0">
-              About Us
-            </div>
-          </div>
-          <div className="w-[148px] h-[43px] flex flex-row items-start justify-start pt-0 px-0 pb-3.5 box-border">
-            <a
-              className="[text-decoration:none] h-[29px] w-[149px] relative text-[inherit] inline-block shrink-0"
-              style={servicesStyle}
-            >
-              Services
-            </a>
-          </div>
-          <div className="w-[148px] h-[43px] flex flex-row items-start justify-start pt-0 px-0 pb-3.5 box-border">
-            <div className="h-[29px] w-[149px] relative inline-block shrink-0">
-              Contact
+            
+            <div className="space-y-2">
+              <h4 className="text-xl font-bold">Phone number</h4>
+              <p className="text-lg text-gray-700">Give Us a call</p>
+              <a 
+                href="tel:+254790555163" 
+                className="text-lg font-bold text-darkslategray hover:underline"
+              >
+                +254 790 555 163
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="h-[535px] w-[433px] flex flex-col items-start justify-start pt-0 px-0 pb-[188px] box-border gap-6">
-        <b className="w-[434px] h-[29px] relative inline-block shrink-0">
-          Contact Details
-        </b>
-        <div className="w-[410px] h-[135px] flex flex-col items-start justify-start py-0 px-0 box-border gap-6">
-          <b className="w-[434px] h-[29px] relative inline-block shrink-0">
-            Email Us
-          </b>
-          <div className="w-[434px] h-[29px] relative inline-block shrink-0">
-            Fast and Reliable Support
-          </div>
-          <b className="w-[434px] h-[29px] relative inline-block text-darkslategray shrink-0">
-            info@thevirtualstaffingsolution.com
-          </b>
-        </div>
-        <div className="w-[433px] h-[135px] flex flex-col items-start justify-start gap-6">
-          <b className="w-[434px] h-[29px] relative inline-block shrink-0">
-            Phone number
-          </b>
-          <div className="w-[434px] h-[29px] relative inline-block shrink-0">
-            Give Us a call
-          </div>
-          <b className="w-[434px] h-[29px] relative inline-block text-darkslategray shrink-0">
-            +254 790 555 163
-          </b>
-        </div>
-      </div>
-    </div>
+    </footer>
   );
 };
 
@@ -121,8 +113,6 @@ Footer.propTypes = {
   className: PropTypes.string,
   facebookLink: PropTypes.string,
   instagramLink: PropTypes.string,
-
-  /** Style props */
   servicesTextDecoration: PropTypes.string,
 };
 

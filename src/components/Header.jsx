@@ -1,54 +1,57 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 const Header = ({ className = "", logoImageBackgroundImage, showLogo }) => {
   const logoImageStyle = useMemo(() => {
     return {
       backgroundImage: logoImageBackgroundImage,
+      width: "200px",
+      height: "50px", // Reduced height back to original
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat",
     };
   }, [logoImageBackgroundImage]);
 
   return (
-    <div
-      className={`w-[1242px] flex flex-row items-center justify-between text-left text-5xl text-black font-inter ${className}`}
-    >
-      <div
-        className="h-[140px] w-[296px] overflow-hidden shrink-0 flex flex-col items-start justify-start py-2.5 px-0 box-border bg-[url('/public/logo@3x.png')] bg-cover bg-no-repeat bg-[top]"
-        style={logoImageStyle}
-      >
-        {showLogo && <div className="w-[76px] relative h-[39px]" />}
-      </div>
-      <div className="w-[593px] flex flex-row items-center justify-start gap-8">
-        <div className="w-[90px] flex flex-col items-center justify-center">
-          <Link to="/" className="[text-decoration:none] relative text-[inherit]">
-            Home
+    <header className={`w-screen h-16 py-4 px-16 flex justify-between items-center bg-white shadow-md ${className}`}>
+      {/* Logo - only render div if showLogo is true */}
+      {showLogo && (
+        <div className="flex-shrink-0">
+          <Link to="/" className="block">
+            <div style={logoImageStyle} />
           </Link>
         </div>
-        <div className="w-[141px] flex flex-col items-center justify-center">
-          <Link to="/about" className="[text-decoration:none] relative text-[inherit]">
-            About Us
-          </Link>
-        </div>
-        <div className="w-[131px] flex flex-col items-center justify-center">
-          <Link to="/services" className="[text-decoration:none] relative text-[inherit]">
-            Services
-          </Link>
-        </div>
-        <div className="w-[121px] flex flex-col items-center justify-center">
-          <Link to="/contact" className="[text-decoration:none] relative text-[inherit]">
-            Contact
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
+      )}
 
-Header.propTypes = {
-  className: PropTypes.string,
-  showLogo: PropTypes.bool,
-  logoImageBackgroundImage: PropTypes.string,
+      {/* Navigation Links */}
+      <nav className="flex items-center space-x-20">
+        <Link
+          to="/"
+          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
+        >
+          Home
+        </Link>
+        <Link
+          to="/about"
+          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
+        >
+          About Us
+        </Link>
+        <Link
+          to="/services"
+          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
+        >
+          Services
+        </Link>
+        <Link
+          to="/contact"
+          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
+        >
+          Contact
+        </Link>
+      </nav>
+    </header>
+  );
 };
 
 export default Header;
