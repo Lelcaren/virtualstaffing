@@ -1,112 +1,104 @@
-import PropTypes from "prop-types";
+import { Layers2 } from "lucide-react";
 
-const ServiceCard = ({ icon, title, description }) => (
-  <div className="bg-darkslategray rounded-lg p-4 sm:p-6 border border-white/20 shadow-lg hover:shadow-xl transition-shadow w-full sm:w-11/12 md:w-72 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
-    
-    <div className="relative z-10">
-      <img className="w-12 h-12 mb-4" src={icon} alt={title} />
-      <h2 className="text-lg font-bold mb-3 text-white">{title}</h2>
-      <p className="text-sm font-poppins mb-4 text-white/80">{description}</p>
-      
-      <div className="space-y-2">
-        <p className="text-xs text-white/70 hover:text-white cursor-pointer transition-colors">
-          What's included in service?
-        </p>
-        <button className="w-full bg-white rounded-lg flex items-center justify-center py-2 hover:bg-gray-100 transition-all shadow-md hover:shadow-lg">
-          <span className="text-sm font-bold text-black">Schedule Discussion</span>
-        </button>
-      </div>
+const ServiceCard = ({ icon: Icon, title, description, classNames }) => (
+  <div className="group relative overflow-hidden rounded-xl border border-slate-200 p-6">
+    <div
+      className={`w-fit rounded-xl text-[1.8rem] mb-4 text-center p-3 ${classNames}`}
+    >
+      <Icon />
     </div>
+    <h2 className="mt-6 font-display text-base font-semibold text-slate-700">
+      {title}
+    </h2>
+    <p className="mt-2.5 text-sm text-slate-500">{description}</p>
   </div>
 );
 
-const Services = ({ className = "" }) => {
+const Services = () => {
   const services = [
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Executive Assistance",
-      description: "Professional administrative support for executives, including scheduling, email management, and task coordination."
+      description:
+        "Professional administrative support for executives, including scheduling, email management, and task coordination.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Bookkeeping",
-      description: "Keep your finances in order with our reliable bookkeeping services, including expense tracking, invoicing, and financial record management."
+      description:
+        "Keep your finances in order with our reliable bookkeeping services, including expense tracking, invoicing, and financial record management.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Social Media Management & Website Creation",
-      description: "Comprehensive support for executives and businesses, from admin tasks to social media and website management—so you can focus on what matters most."
+      description:
+        "Comprehensive support for executives and businesses, from admin tasks to social media and website management—so you can focus on what matters most.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Meeting Minutes",
-      description: "We capture clear, concise, and well-structured meeting minutes, ensuring key discussions, decisions, and action points are accurately recorded and easily accessible."
+      description:
+        "We capture clear, concise, and well-structured meeting minutes, ensuring key discussions, decisions, and action points are accurately recorded and easily accessible.",
+      classNames: "bg-indigo-200 text-indigo-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Travel Arrangements",
-      description: "From flights to accommodations, our virtual assistants handle all your travel logistics—ensuring seamless, stress-free trips with well-organized itineraries."
+      description:
+        "From flights to accommodations, our virtual assistants handle all your travel logistics—ensuring seamless, stress-free trips with well-organized itineraries.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Manage Calendars",
-      description: "Stay organized and never miss an appointment—our virtual assistants manage your calendar, schedule meetings, and send reminders efficiently."
+      description:
+        "Stay organized and never miss an appointment—our virtual assistants manage your calendar, schedule meetings, and send reminders efficiently.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Data Entry",
-      description: "Accurate and efficient data entry services to keep your records organized, up-to-date, and easily accessible."
+      description:
+        "Accurate and efficient data entry services to keep your records organized, up-to-date, and easily accessible.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Research",
-      description: "Providing in-depth research to support informed decision-making. Whether it's market analysis, industry trends, or data gathering, we deliver accurate and reliable insights."
+      description:
+        "Providing in-depth research to support informed decision-making. Whether it's market analysis, industry trends, or data gathering, we deliver accurate and reliable insights.",
+      classNames: "bg-green-200 text-green-800",
     },
     {
-      icon: "/group-5@2x.png",
+      icon: Layers2,
       title: "Reports",
-      description: "Get accurate, well-structured reports to track performance, analyze data, and make informed business decisions."
-    }
+      description:
+        "Get accurate, well-structured reports to track performance, analyze data, and make informed business decisions.",
+      classNames: "bg-green-200 text-green-800",
+    },
   ];
 
   return (
-    <div className={`min-h-screen bg-darkslategray flex items-center justify-center p-8 ml-10 ${className}`}>
-      <div className="max-w-7xl w-full">
-        {/* Header Section */}
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Our Services</h1>
-          <p className="text-base sm:text-lg md:text-xl font-poppins text-white max-w-3xl mx-auto">
-            We provide tailored virtual staffing solutions to help businesses
-            streamline operations, boost productivity, and scale efficiently.
-          </p>
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-            />
+    <section className="bg-white">
+      <div className="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 lg:px-8 lg:py-24">
+        <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+          Our Services
+        </h2>
+        <p className="text-gray-600 mt-2 sm:mt-4 text-sm md:text-base">
+          We offer part-time and full-time packages at competitive rates,
+          tailored to your unique business needs.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-10 md:mt-16 overflow-hidden gap-6">
+          {services.map((service) => (
+            <ServiceCard key={service.title} {...service} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-Services.propTypes = {
-  className: PropTypes.string,
-};
-
-ServiceCard.propTypes = {
-  icon: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
-
 export default Services;
-

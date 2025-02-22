@@ -1,55 +1,96 @@
-import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import logo2x from "../../public/logo@3x.png";
+import { NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
-const Header = ({ className = "", logoImageBackgroundImage, showLogo }) => {
-  const logoImageStyle = useMemo(() => {
-    return {
-      backgroundImage: logoImageBackgroundImage,
-      width: "200px",
-      height: "50px", // Reduced height back to original
-      backgroundSize: "contain",
-      backgroundRepeat: "no-repeat",
-    };
-  }, [logoImageBackgroundImage]);
+const navlinks = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About Us",
+    href: "/about",
+  },
+  {
+    label: "Services",
+    href: "/services",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];
+
+const Header = () => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className={`w-screen h-16 py-4 px-16 flex justify-between items-center bg-white shadow-md ${className}`}>
-      {/* Logo - only render div if showLogo is true */}
-      {showLogo && (
-        <div className="flex-shrink-0">
-          <Link to="/" className="block">
-            <div style={logoImageStyle} />
-          </Link>
-        </div>
-      )}
+    <header className="bg-white">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex-1 md:flex md:items-center md:gap-12">
+            <a className="block text-teal-600" href="#">
+              <span className="sr-only">Home</span>
+              <img src={logo2x} className="h-12" alt="Company Logo" />
+            </a>
+          </div>
 
-      {/* Navigation Links */}
-      <nav className="flex items-center space-x-20">
-        <Link
-          to="/"
-          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
-        >
-          About Us
-        </Link>
-        <Link
-          to="/services"
-          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
-        >
-          Services
-        </Link>
-        <Link
-          to="/contact"
-          className="text-4xl font-semibold text-blue-600 hover:text-blue-700 transition-all duration-200"
-        >
-          Contact
-        </Link>
-      </nav>
+          <div className="md:flex md:items-center md:gap-12">
+            <nav aria-label="Global" className="hidden md:block">
+              <ul className="flex items-center gap-6 text-sm">
+                {navlinks.map((link) => (
+                  <li key={link.label}>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-blue-500 hover:underline transition underline"
+                          : "text-gray-500 hover:underline transition hover:text-gray-500/75"
+                      }
+                      to={link.href}
+                    >
+                      {link.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {open && (
+              <nav
+                aria-label="Mobile"
+                className="md:hidden z-50 absolute inset-0 h-full pt-6 bg-white"
+              >
+                <ul className="flex flex-col items-center gap-6 text-sm">
+                  {navlinks.map((link) => (
+                    <li key={link.label}>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-blue-500 hover:underline transition underline"
+                            : "text-gray-500 hover:underline transition hover:text-gray-500/75"
+                        }
+                        to={link.href}
+                      >
+                        {link.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                  <button onClick={() => setOpen((prevState) => !prevState)}>
+                    <X />
+                  </button>
+                </ul>
+              </nav>
+            )}
+          </div>
+
+          <div className="md:hidden">
+            <button onClick={() => setOpen((prevState) => !prevState)}>
+              <Menu />
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };
