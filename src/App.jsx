@@ -1,29 +1,29 @@
-import { useEffect } from "react";
+import HomePage from "./pages/HomePage.jsx";
 import {
-  Routes,
   Route,
-  useNavigationType,
+  Routes,
   useLocation,
+  useNavigationType,
 } from "react-router-dom";
-import HomepageDesktop from "./pages/HomepageDesktop";
-import ContactDesktop from "./pages/ContactDesktop";
+import { useEffect } from "react";
+import ContactPage from "./pages/ContactPage.jsx";
+import Footer from "./components/Footer.jsx";
+import Header from "./components/Header.jsx";
 
 function App() {
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
 
-  // Scroll to top on route change
   useEffect(() => {
     if (action !== "POP") {
       window.scrollTo(0, 0);
     }
   }, [action, pathname]);
 
-  // Update document title and meta description based on route
   useEffect(() => {
-    let title = "";
-    let metaDescription = "";
+    let title;
+    let metaDescription;
 
     switch (pathname) {
       case "/":
@@ -43,21 +43,30 @@ function App() {
       document.title = title;
     }
 
-    if (metaDescription) {
-      const metaDescriptionTag = document.querySelector(
-        'head > meta[name="description"]'
-      );
-      if (metaDescriptionTag) {
-        metaDescriptionTag.content = metaDescription;
-      }
+    if (!metaDescription) {
+      return;
+    }
+
+    const metaDescriptionTag = document.querySelector(
+      'head > meta[name="description"]',
+    );
+
+    if (metaDescriptionTag) {
+      metaDescriptionTag.content = metaDescription;
     }
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<HomepageDesktop />} />
-      <Route path="/contact" element={<ContactDesktop />} />
-    </Routes>
+    <>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+
+      <Footer />
+    </>
   );
 }
 
