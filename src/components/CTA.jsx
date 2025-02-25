@@ -17,7 +17,7 @@ const CTA = () => (
 
         <div className="mx-auto mt-8 max-w-xl">
           <form action="#" className="sm:flex sm:gap-4">
-            <div className="sm:flex-1">
+            <div className="sm:flex-1o">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
