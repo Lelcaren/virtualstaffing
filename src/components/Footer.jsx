@@ -149,7 +149,7 @@ const Footer = () => (
               >
                 <Phone className="size-5 shrink-0 text-gray-900" />
 
-                <span className="flex-1 text-gray-700">+254 790 555 163</span>
+                <span className="flex-1 text-gray-700">757-296-8897</span>
               </a>
             </li>
           </ul>
@@ -179,7 +179,7 @@ const Footer = () => (
           </p>
 
           <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-            &copy; {new Date().getFullYear()} Company Name
+            &copy; {new Date().getFullYear()} Virtual Staffing Solutions
           </p>
         </div>
       </div>
