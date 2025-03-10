@@ -82,13 +82,13 @@ const ContactPage = () => {
                 <li>
                   <a
                     className="group flex items-center gap-4 hover:text-blue-600 transition-colors duration-200"
-                    href="tel:+254790555163"
+                    href="tel:757-296-8897"
                   >
                     <div className="rounded-lg bg-blue-50 p-3 group-hover:bg-blue-100 transition-colors duration-200">
                       <Phone className="size-5 text-blue-600" />
                     </div>
                     <span className="text-gray-700 group-hover:text-blue-600">
-                      +254 790 555 163
+                    757-296-8897
                     </span>
                   </a>
                 </li>

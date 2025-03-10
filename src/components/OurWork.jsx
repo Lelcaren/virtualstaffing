@@ -59,7 +59,7 @@ const OurWork = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Our Services
+            Our work
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             We offer flexible packages at competitive rates,
